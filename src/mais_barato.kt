@@ -1,7 +1,9 @@
 fun main() {
     val maisBarato = maisBarato(mountarCarros())
+    val maisCaro = maisCaro(mountarCarros())
 
-    print("O carro mais barato é ${maisBarato.nome} e custa ${maisBarato.preco}")
+    println("O carro mais barato é ${maisBarato.nome} e custa ${maisBarato.preco}")
+    println("O carro mais barato é ${maisCaro.nome} e custa ${maisCaro.preco}")
 }
 
 private fun maisBarato(carros: List<Carro>): Carro {
@@ -11,6 +13,15 @@ private fun maisBarato(carros: List<Carro>): Carro {
             maisBarato = carro
     }
     return maisBarato
+}
+
+private fun maisCaro(carros: List<Carro>): Carro {
+    var maisCaro = carros[0]
+    for (carro in carros) {
+        if (carro.preco > maisCaro.preco)
+            maisCaro = carro
+    }
+    return maisCaro
 }
 
 fun mountarCarros(): List<Carro> {
